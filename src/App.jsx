@@ -1,35 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import TodoFilter from './components/TodoFilter';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Provider store={store}>
+      <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+        <div className="relative py-3 sm:min-w-fit sm:mx-auto">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-light-blue-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+          <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+            <h1 className="text-4xl font-bold text-center text-gray-900 mb-8">Todo App</h1>
+            <div className="w-[550px] mx-auto">
+              <TodoForm />
+              <TodoFilter />
+              <TodoList />
+            </div>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </Provider>
+  );
+};
 
-export default App
+export default App;
