@@ -62,13 +62,13 @@ const TodoItem = ({ todo }) => {
             onClick={handleEdit}
             className="w-full sm:w-auto px-2 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
-            {isEditing ? <FaSave /> : <FaEdit />}
+            {isEditing ? <FaSave className='mx-auto'/> : <FaEdit className='mx-auto'/>}
           </button>
           <button
             onClick={() => dispatch(deleteTodo(todo.id))}
             className="w-full sm:w-auto px-2 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
           >
-            <MdDelete />
+            <MdDelete className='mx-auto'/>
           </button>
         </div>
       </div>
